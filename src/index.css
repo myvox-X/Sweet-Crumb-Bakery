@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300..700&family=Inter:wght@300..800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fredoka", "Quicksand", sans-serif;
+  --font-serif: "Playfair Display", serif;
+  
+  --color-brand-pink: #FFF0F2;
+  --color-brand-pink-dark: #FFB3C1;
+  --color-brand-pink-hover: #FFA2B3;
+  --color-brand-cream: #FFFDF9;
+  --color-brand-cream-dark: #F5EFEB;
+  --color-brand-brown: #5E3E34;
+  --color-brand-brown-light: #8E6C5F;
+  --color-brand-brown-dark: #3D2620;
+  --color-brand-accent: #E29578;
+  --color-brand-accent-light: #FCEFE9;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color: var(--color-brand-brown);
+    font-family: var(--font-sans);
+    background-color: var(--color-brand-cream);
+  }
+
+  /* Custom scrollbar matching bakery colors */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-brand-cream);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-brand-pink-dark);
+    border-radius: 9999px;
+    border: 2px solid var(--color-brand-cream);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-brand-accent);
+  }
+}
+
+/* Float Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(3deg);
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(-5deg);
+  }
+}
+
+@keyframes float-rotate {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(180deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(360deg);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.03);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+.animate-float-rotate {
+  animation: float-rotate 12s linear infinite;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s ease-in-out infinite;
+}
+
+/* Glassmorphism for specific floating cards */
+.glass-panel {
+  background: rgba(255, 253, 249, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 240, 242, 0.5);
+}
+
+.custom-shadow-soft {
+  box-shadow: 0 10px 30px -10px rgba(94, 62, 52, 0.08), 0 1px 3px rgba(94, 62, 52, 0.02);
+}
+
+.custom-shadow-pink {
+  box-shadow: 0 10px 30px -10px rgba(255, 179, 193, 0.4), 0 4px 10px -5px rgba(255, 179, 193, 0.2);
+}
